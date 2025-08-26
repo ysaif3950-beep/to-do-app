@@ -5,16 +5,20 @@
 </div>
 
 <div class="col-8 mx-auto">
-    <form action="{{ url('posts/store') }}" method="post" class="form border p-3">
+    <form action="{{ url('posts') }}" method="post" class="form border p-3">
         @csrf
+
+        @include('layout.error')
+        @include('layout.message')
+
         <div class="mb-3">
             <label for="">Post title</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" value="{{old('title')}}">
         </div>
 
         <div class="mb-3">
             <label for="">Post Description</label>
-            <textarea class="form-control" name="description" rows="7"></textarea>
+            <textarea class="form-control" name="description" rows="7">{{ old('description')}}</textarea>
         </div>
 
         <div class="mb-3">
