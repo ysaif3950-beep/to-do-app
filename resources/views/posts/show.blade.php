@@ -1,9 +1,8 @@
 @extends('layout.app')
 @section('content')
  <div class="col-12">
-    <h1 class="p-3 border text-center my-3">All posts</h1>
+    <h1 class="p-3 border text-center my-3">{{$post->title}}</h1>
      </div>
-  @foreach ($posts as $post)
 
 <div class="col-12"></div>
 
@@ -13,12 +12,8 @@
 </div>
   <div class="card-body">
     <h5 class="card-title">{{$post->title}}</h5>
-    <p class="card-text">{{ \Str::limit($post->description,50)}}</p>
-    <a href="{{url('posts/' .$post->id)}}" class="btn btn-primary">Show post</a>
+    <p class="card-text">{{$post->description}}</p>
   </div>
            </div>
-  @endforeach
-<div class="col-12">
-          {{ $posts->links() }}
-        </div>
+
 @endsection
